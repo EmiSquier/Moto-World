@@ -5,3 +5,7 @@ body{
     padding: 0px;
     font-size: 10px;
 }
+
+main{
+    margin: 2rem;
+}

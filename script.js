@@ -1,6 +1,6 @@
 const d = document
 $selectPrimary = d.getElementById("select-primary"),
-    $selectSecondary = d.getElementById("select-secondary");
+$selectSecondary = d.getElementById("select-secondary");
 
 function loadMakes() {
 
@@ -28,4 +28,32 @@ function loadMakes() {
 
 }
 
-loadMakes();
+
+
+function loadModel(make) {
+
+    const options = {
+        method: 'GET',
+        headers: {
+            'X-RapidAPI-Key': '18b0f3c3ddmsh476e3145da49a75p17a59fjsn4e6650baf93d',
+            'X-RapidAPI-Host': 'motorcycle-specs-database.p.rapidapi.com'
+        }
+    };
+    
+    fetch(`https://motorcycle-specs-database.p.rapidapi.com/model/make-name/${make}`, options)
+        .then(response => response.json())
+        .then(json => {
+            let options = `<option value="">Elige un modelo</option>`;
+            json.forEach(({ id, name }) => options += `<option value="${name}">${name}</option>`);
+            $selectSecondary.innerHTML = options;
+        })
+        .catch(err => {
+            console.log(err);
+            let message = err.statusText || " Ocurrió un error";
+            $selectSecondary.nextElementSibling.innerHTML = `Error: ${err.status}:${message}`;
+        });
+}
+
+d.addEventListener("DOMContentLoaded", loadMakes)
+
+$selectPrimary.addEventListener("change", e => loadModel(e.target.value))

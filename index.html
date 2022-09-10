@@ -66,20 +66,20 @@
             <h1>MotoZone</h1>
         </div>
         <div id="subtitle">
-            <h2>Motocicletas</h2>
+            <h2>Comparador de motocicletas online!</h2>
         </div>
 
-        <label class="dropdown" for="select-primary">Marca</label>
+        <label class="dropdown" for="select-primary">Marca:</label>
         <select name="primary" id="select-primary">
-            <option class="dropdown-item active" value="">Elige una marca</option>
+            <option id="makeData" class="dropdown-item active" value="">Elige una marca</option>
         </select>
         <p></p>
-        <label for="select-secondary">Modelo</label>
+        <label for="select-secondary">Modelo:</label>
         <select name="secondary" id="select-secondary">
-            <option value="">Elige un modelo</option>
+            <option  id="modelData" value="">Elige un modelo</option>
         </select>
         <p></p>
-        <input type="number" id="year" placeholder="Ingresa el año"></input>
+        
         <ul id="technicalSheet">
             <li id="brandData"> Datos principales:
                 <ul>
@@ -135,6 +135,8 @@
                 </ul>
             </li>
         </ul>
+
+        <button type="button" class="btn btn-primary" id="buttonSpecs">A ver que se rompe</button>
     </main>
     <footer id="footer">Emiliano Marchese 2022, todos los derechos reservados.</footer>
     <script src="script.js"></script>
